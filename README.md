@@ -1,0 +1,1 @@
+# CallahanMankin_ExtremeHeatEconomics_2022
