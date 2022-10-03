@@ -1,6 +1,6 @@
 # Globally unequal effect of extreme heat on economic growth
 
-This repository provides replication data and code for the paper "National attribution of historical climate damages," by Christopher W. Callahan and Justin S. Mankin, published in _Science Advances_ (doi to come).
+This repository provides replication data and code for the paper "National attribution of historical climate damages," by Christopher W. Callahan and Justin S. Mankin, published in _Science Advances_ (10.1126/sciadv.add3726).
 
 ### Overview
 
