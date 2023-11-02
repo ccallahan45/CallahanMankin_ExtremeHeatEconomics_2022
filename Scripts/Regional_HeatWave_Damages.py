@@ -350,19 +350,19 @@ for n in uncertainty:
     # first, for tx
     delta_growth_tx = (me_tx_1.loc[:,0,:]*cf_tx_n) - (me_tx_2.loc[:,0,:]*obs_tx_n)
     for l in np.arange(1,convergence_year_tx+1,1):
-        delta_tx = (me_tx_1.loc[:,l,:]*cf_tx_n.shift(time=l)) - (me_tx_2.loc[:,l,:]*obs_tx_n.shift(time=l))
+        delta_tx = (me_tx_1.loc[:,l,:].shift(time=l)*cf_tx_n.shift(time=l)) - (me_tx_2.loc[:,l,:].shift(time=l)*obs_tx_n.shift(time=l))
         delta_growth_tx = delta_growth_tx + delta_tx.where(~np.isnan(delta_tx),0.0)
 
     # next, for tmean
     delta_growth_t = (me_t_1.loc[:,0,:]*cf_t_n) - (me_t_2.loc[:,0,:]*obs_t_n)
     for l in np.arange(1,np.amax(me_t_1.lag.values)+1,1):
-        delta_t = (me_t_1.loc[:,l,:]*cf_t_n.shift(time=l)) - (me_t_2.loc[:,l,:]*obs_t_n.shift(time=l))
+        delta_t = (me_t_1.loc[:,l,:].shift(time=l)*cf_t_n.shift(time=l)) - (me_t_2.loc[:,l,:].shift(time=l)*obs_t_n.shift(time=l))
         delta_growth_t = delta_growth_t + delta_t.where(~np.isnan(delta_t),0.0)
 
     # finally, tvar
     delta_growth_tvar = (me_tvar_1.loc[:,0,:]*cf_tvar_n) - (me_tvar_2.loc[:,0,:]*obs_tvar_n)
     for l in np.arange(1,convergence_year_tvar+1,1):
-        delta_tvar = (me_tvar_1.loc[:,l,:]*cf_tvar_n.shift(time=l)) - (me_tvar_2.loc[:,l,:]*obs_tvar_n.shift(time=l))
+        delta_tvar = (me_tvar_1.loc[:,l,:].shift(time=l)*cf_tvar_n.shift(time=l)) - (me_tvar_2.loc[:,l,:].shift(time=l)*obs_tvar_n.shift(time=l))
         delta_growth_tvar = delta_growth_tvar + delta_tvar.where(~np.isnan(delta_tvar),0.0)
 
     # calculate change in income from change in growth
